@@ -5,6 +5,12 @@ $adl-grey-dark: #595f6f;
 $adl-grey-darkest: #333740;
 $adl-coral: #f56e4e;
 $adl-offwhite: #d5d6da;
+$adl-white: #fff;
+$adl-black: #000;
+$adl-orange: #F56E4E;
+$adl-light-grey: #ECECED;
+$adl-light-blue-grey: #595F6F;
+$adl-dark-blue-gray: #333740;
 
 // Fonts
 $adl-line-height: $line-height-base;
@@ -20,7 +26,20 @@ $adl-body-padding: 15px;
 $adl-box-shadow: 3px 3px 0 0 rgba(202,205,215,1);
 
 // Filter panel & Filters
-$adl-filter-min-height: 36px;
-$adl-filter-padding-top: 8px;
-$adl-filter-padding-side: 8px;
+$adl-filter-min-height: 40px;
+$adl-filter-padding-top: 12px;
+$adl-filter-padding-side: 12px;
 $adl-filter-padding: $adl-filter-padding-top $adl-filter-padding-side;
+
+// Others
+$adl-global-padding: 20px;
+$adl-animation-timing: 0.25s;
+$adl-global-opacity: 0.75;
+
+// Breakpoints
+$adl-tablet: 768;
+$adl-desktop: 960;
+
+// Typography
+$adl-ui-font: 'Fira Sans Condensed', sans-serif;
+$adl-body-font: 'Zilla Slab', serif;

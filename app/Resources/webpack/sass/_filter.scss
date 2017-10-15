@@ -3,32 +3,43 @@ $check-mark: '\f00c';
 .filter {
   position: relative;
   min-height: $adl-filter-min-height;
-  border-bottom: 2px solid $adl-grey-light;
+  border-bottom: 1px solid $adl-grey-light;
   color: #fff;
+  transform-style: preserve-3d;
 
   // Is open
   &.open {
     .option { display: flex; }
     .option.show-more { display: block; }
-    .title:after { content: '\f0d8'; }
+    .title span { opacity: 1; }
+    .title:after {
+      transform: rotate(-180deg);
+      opacity: 1;
+    }
   }
   // Has one or more options selected
   &.filter-marked {
-    .title:after {
-      content: $check-mark;
-    }
+    // .title:after { content: $check-mark; }
+    .title span { opacity: 1; }
   }
 
   .title {
     display: flex;
     justify-content: space-between;
-    padding: $adl-filter-padding;
+    padding: $adl-global-padding/2;
     background-color: $adl-grey-dark;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
+
+    span { opacity: $adl-global-opacity; }
 
     &:after {
-      content: '\f0d7';
-      font: 1.75rem 'FontAwesome';
+      display: block; content: '';
+      opacity: $adl-global-opacity;
+      position: absolute; right: $adl-global-padding; top: 17px;
+      width: 10px; height: 6px;
+      background: transparent url('icons/down-mark.svg') center center no-repeat;
+      will-change: transform;
+      transition: transform $adl-animation-timing linear;
     }
 
     &:hover {
@@ -39,23 +50,45 @@ $check-mark: '\f00c';
 
   .option {
     display: none;
-    justify-content: space-between;
     background-color: $adl-grey-darkest;
     padding: $adl-filter-padding;
     border-bottom: 1px solid $adl-grey-light;
-    color: $adl-offwhite;
+    color: $white;
 
     &:hover {
       background-color: darken($adl-grey-darkest, 7.5%);
       cursor: pointer;
     }
-    &.filter-marked:after {
-      content: $check-mark;
-      font: 1.5rem 'FontAwesome';
-    }
 
     > input[type="checkbox"] {
       display: none;
+    }
+
+    .count {
+      display: block;
+      margin-left: auto;
+      text-align: right;
+      padding: 1px 12px;
+      background-color: rgba(255,255,255,0.2);
+      border-radius: $adl-border-radius-big;
+      transition: all $adl-animation-timing/2 linear;
+
+      &:hover {
+        background-color: $adl-orange;
+        transition: all $adl-animation-timing/2 linear;
+      }
+    }
+
+    &.filter-marked .count {
+      padding-left: 8px;
+      transition: all $adl-animation-timing ease-in-out;
+      span:before {
+        display: inline-block;
+        margin-right: 0.5rem;
+        content: $check-mark;
+        font: 0.85rem 'FontAwesome';
+        opacity: 0.3;
+      }
     }
 
     &.show-more {
@@ -80,6 +113,7 @@ $check-mark: '\f00c';
 
   .option {
     display: flex;
+    justify-content: space-between;
 
     &:hover {
       background-color: $adl-grey-darkest;

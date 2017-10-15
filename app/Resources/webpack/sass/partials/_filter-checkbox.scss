@@ -1,0 +1,29 @@
+.styled-checkbox {
+    label {
+        display: block;
+        padding:15px $global-padding;
+        width:100%;
+        cursor: pointer;
+    }
+
+    [type=checkbox] {
+        position: absolute;
+        left: 0;  top: 0;
+        margin: 0;  padding: 0;  opacity: 0;
+
+        & + label:after {
+            content: ''; display: block;
+            position: absolute; top: $global-padding - 7px; right: $global-padding;
+            width: 19px; height: 19px;
+            background: transparent url('../img/icons/checkbox-unchecked.svg') center center no-repeat;
+            background-size: 100%;
+        }
+    }
+
+    [type=checkbox]:checked + label {
+        color: white;
+        &:after {
+            background: transparent url('../img/icons/checkbox-checked.svg') center center no-repeat;
+        }
+    }
+}

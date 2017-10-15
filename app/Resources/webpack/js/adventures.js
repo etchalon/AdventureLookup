@@ -15,9 +15,10 @@
   });
   // Set appropriate input option and update visuals for the whole filter
   $optionsList.on('click', '.option', e => {
-    let $option = $(e.target),
-      $filter = $option.closest('.filter'),
-      checkbox = $option.find('input[type=checkbox]')[0];
+    let $option = $(e.currentTarget);
+    if ($option.hasClass('count')) { $option = $option.closest('.option'); }
+    let $filter = $option.closest('.filter'),
+        checkbox = $option.find('input[type=checkbox]')[0];
 
     if (checkbox) {
       $option.toggleClass('filter-marked');

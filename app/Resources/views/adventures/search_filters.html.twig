@@ -4,11 +4,8 @@
         <input type="checkbox" id="{{ name }}" name="{{ name }}" value="{{ value }}"
                {% if checked %}checked{% endif %}
         />
-
-        <div>
-            {{ value }}
-            <span class="badge-pill badge badge-info">{{ count }}</span>
-        </div>
+        {{ value }}
+        <div class="count"><span>{{ count }}</span></div>
     </div>
 {% endmacro %}
 
@@ -32,7 +29,7 @@
         {% endif %}
     {% else %}
     <div class="filter {{ classes|join(' ') }}" id="filter-{{ field.name }}">
-        <div class="title">{{ field.title }}</div>
+        <div class="title"><span>{{ field.title }}</span></div>
         <div class="options-list">
             {#{% if field.description is not empty %}#}
                 {#<p class="card-text small">{{ field.description }}</p>#}

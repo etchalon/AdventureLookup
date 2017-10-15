@@ -3,9 +3,9 @@
     .logo {
 
         @include hide-text;
-        background-color: $orange;
-        text-align: left;
-        padding: $global-padding 0 $global-padding 0;
+        background-color: $adl-orange;
+        text-align: center;
+        padding: $adl-global-padding 0 $adl-global-padding 0;
 
         a {
             display: inline-block;

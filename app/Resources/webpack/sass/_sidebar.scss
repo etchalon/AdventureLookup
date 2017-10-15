@@ -2,9 +2,10 @@
   align-self: flex-start;
   margin-top: 20px;
   padding: 0;
-  font-family: 'Open Sans', sans-serif;
+  font-family: $adl-ui-font;
+  font-weight: 300;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  user-select: none;
 
   > .content {
     box-shadow: $adl-box-shadow;
@@ -32,10 +33,10 @@
   a.btn {
     display: flex;
     max-width: 80%;
-    justify-content: space-evenly;
+    justify-content: space-between;
     background-color: $adl-grey;
     margin: 12px auto;
-    padding: 8px 25px;
+    padding: 8px 10px;
     border-radius: 0;
     font: 1.2rem 'Roboto Condensed';
     text-transform: uppercase;
