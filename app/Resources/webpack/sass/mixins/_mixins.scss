@@ -1,0 +1,55 @@
+// show / hide
+@mixin show-hide($transition-duration:.3s) {
+    visibility:hidden;
+    opacity:0;
+    transition:opacity #{$transition_duration} ease-in-out, visibility 0s linear #{$transition_duration};
+    &.active {
+        visibility:visible;
+        opacity:1;
+        transition-delay:0s;
+    }
+}
+
+// breakpoints
+@mixin breakpoint( $value, $operator: 'min-width', $query: 'screen') {
+    @media #{$query} and (#{$operator}: #{$value}px) {
+        @content;
+    }
+}
+
+@mixin adl_dropshadow() {
+    box-shadow: 3px 3px 0 0 rgba(202,205,215,1);
+}
+
+// antialiasing
+@mixin antialiased {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+// old hide-text
+@mixin hide-text {
+    font:0/0 a;
+    text-shadow:none;
+}
+
+// 2x assets
+@mixin retina($image, $width:false, $height:false) {
+    @media (min--moz-device-pixel-ratio: 1.3),
+    (-o-min-device-pixel-ratio: 2.6/2),
+    (-webkit-min-device-pixel-ratio: 1.3),
+    (min-device-pixel-ratio: 1.3),
+    (min-resolution: 1.3dppx) {
+        /* on retina, use image that's scaled by 2 */
+        background-image: url($image);
+
+        @if $width {
+            background-size: $width $height;
+        }
+    }
+}
+
+@mixin native-scroll {
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+}

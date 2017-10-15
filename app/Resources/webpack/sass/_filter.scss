@@ -4,7 +4,7 @@ $check-mark: '\f00c';
   position: relative;
   min-height: $adl-filter-min-height;
   border-bottom: 2px solid $adl-grey-light;
-  color: $adl-offwhite;
+  color: #fff;
 
   // Is open
   &.open {
@@ -24,12 +24,13 @@ $check-mark: '\f00c';
     justify-content: space-between;
     padding: $adl-filter-padding;
     background-color: $adl-grey-dark;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
 
     &:after {
       content: '\f0d7';
       font: 1.75rem 'FontAwesome';
     }
+
     &:hover {
       background-color: darken($adl-grey-dark, 7.5%);
       cursor: pointer;

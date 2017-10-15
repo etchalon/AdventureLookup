@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="19px" height="19px" viewBox="0 0 19 19" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 45.2 (43514) - http://www.bohemiancoding.com/sketch -->
+    <title>Shape</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" fill-opacity="0.75">
+        <g id="Checkbox" fill="#FFFFFF">
+            <path d="M9.41206675,18.874611 C4.22209628,18.874611 0,14.6413323 0,9.43730551 C0,4.23327869 4.22209628,0 9.41206675,0 C14.6020372,0 18.8241335,4.23327869 18.8241335,9.43730551 C18.8241335,14.6413323 14.6020372,18.874611 9.41206675,18.874611 Z M9.41206675,2.09700447 C5.37585879,2.09700447 2.09183184,5.39016542 2.09183184,9.43730551 C2.09183184,13.4844456 5.37585879,16.7776066 9.41206675,16.7776066 C13.4490591,16.7776066 16.7323017,13.4844456 16.7323017,9.43730551 C16.7323017,5.39016542 13.4490591,2.09700447 9.41206675,2.09700447 Z" id="Shape"></path>
+        </g>
+    </g>
+</svg>

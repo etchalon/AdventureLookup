@@ -1,5 +1,15 @@
 @import '~bootstrap/scss/functions', '~bootstrap/scss/variables';
 @import 'variables';
+
+@import 'mixins/mixins';
+
+@import "config/global";
+@import "config/colors";
+
+// Partials
+@import 'partials/logo';
+
+// Pages
 @import 'adventure';
 @import 'adventures';
 @import 'filter';

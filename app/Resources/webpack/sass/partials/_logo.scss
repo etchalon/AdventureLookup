@@ -1,0 +1,16 @@
+#adl-sidebar {
+
+    .logo {
+
+        @include hide-text;
+        background-color: $orange;
+        text-align: left;
+        padding: $global-padding 0 $global-padding 0;
+
+        a {
+            display: inline-block;
+            width: 250px; height: 19px;
+            background: transparent url('logo-large.svg') center center no-repeat;
+        }
+    }
+}

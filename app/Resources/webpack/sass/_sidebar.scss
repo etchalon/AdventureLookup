@@ -2,22 +2,13 @@
   align-self: flex-start;
   margin-top: 20px;
   padding: 0;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   text-transform: uppercase;
+  letter-spacing: 1px;
 
   > .content {
     box-shadow: $adl-box-shadow;
     margin-bottom: 8px;
-
-    > .title {
-      padding: $adl-filter-padding;
-      background-color: $adl-coral;
-      color: #ffffff;
-      font-size: 1.5rem;
-      font-weight: 600;
-      letter-spacing: .2rem;
-      text-align: center;
-    }
 
     #filter-more {
       display: flex;
