@@ -1,0 +1,25 @@
+.filter
+{
+    .option.integer-option
+    {
+        padding: 0;
+
+        .form-control {
+            @include blankinputstyle;
+
+            background: $adl-white;
+            padding: $adl-filter-padding;
+            border-right: 1px solid $adl-grey;
+
+            &.adl-integer-left {
+                border-left: 1px solid $adl-grey;
+            }
+        }
+
+        input[type=number]::-webkit-inner-spin-button,
+        input[type=number]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+    }
+}

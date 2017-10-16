@@ -1,123 +1,163 @@
 $check-mark: '\f00c';
 
 .filter {
-  position: relative;
-  min-height: $adl-filter-min-height;
-  border-bottom: 1px solid $adl-grey-light;
-  color: #fff;
-  transform-style: preserve-3d;
+    position: relative;
+    min-height: $adl-filter-min-height;
+    border-bottom: 1px solid $adl-lightest-grey;
+    color: #fff;
+    transform-style: preserve-3d;
 
-  // Is open
-  &.open {
-    .option { display: flex; }
-    .option.show-more { display: block; }
-    .title span { opacity: 1; }
-    .title:after {
-      transform: rotate(-180deg);
-      opacity: 1;
-    }
-  }
-  // Has one or more options selected
-  &.filter-marked {
-    // .title:after { content: $check-mark; }
-    .title span { opacity: 1; }
-  }
-
-  .title {
-    display: flex;
-    justify-content: space-between;
-    padding: $adl-global-padding/2;
-    background-color: $adl-grey-dark;
-    font-size: 1.2rem;
-
-    span { opacity: $adl-global-opacity; }
-
-    &:after {
-      display: block; content: '';
-      opacity: $adl-global-opacity;
-      position: absolute; right: $adl-global-padding; top: 17px;
-      width: 10px; height: 6px;
-      background: transparent url('icons/down-mark.svg') center center no-repeat;
-      will-change: transform;
-      transition: transform $adl-animation-timing linear;
+    // Is open
+    &.open {
+        border-bottom: none;
+        .option-list-inner {
+            transition: max-height $adl-animation-timing linear;
+        }
+        .title span {
+            opacity: 1;
+        }
+        .title:after {
+            transform: rotate(-180deg);
+            opacity: 1;
+        }
     }
 
-    &:hover {
-      background-color: darken($adl-grey-dark, 7.5%);
-      cursor: pointer;
-    }
-  }
-
-  .option {
-    display: none;
-    background-color: $adl-grey-darkest;
-    padding: $adl-filter-padding;
-    border-bottom: 1px solid $adl-grey-light;
-    color: $white;
-
-    &:hover {
-      background-color: darken($adl-grey-darkest, 7.5%);
-      cursor: pointer;
+    // Has one or more options selected
+    &.filter-marked {
+        // .title:after { content: $check-mark; }
+        .title span {
+            opacity: 1;
+        }
     }
 
-    > input[type="checkbox"] {
-      display: none;
+    .option-list-inner {
+        height: auto;
+        max-height: 0;
+        overflow-y: hidden;
+        will-change: max-height;
+        transition: max-height $adl-animation-timing linear;
+
+        &.expanded .show-more span {
+            transform: rotate(-180deg);
+            opacity: 1;
+        }
     }
 
-    .count {
-      display: block;
-      margin-left: auto;
-      text-align: right;
-      padding: 1px 12px;
-      background-color: rgba(255,255,255,0.2);
-      border-radius: $adl-border-radius-big;
-      transition: all $adl-animation-timing/2 linear;
+    .title {
+        display: flex;
+        justify-content: space-between;
+        padding: $adl-global-padding/2;
+        font-size: 1.2rem;
 
-      &:hover {
-        background-color: $adl-orange;
-        transition: all $adl-animation-timing/2 linear;
-      }
+        span {
+            opacity: $adl-global-opacity;
+        }
+
+        &:after {
+            display: block;
+            content: '';
+            opacity: $adl-global-opacity;
+            position: absolute;
+            right: $adl-global-padding;
+            top: 17px;
+            width: 10px;
+            height: 6px;
+            background: transparent url('icons/down-mark.svg') center center no-repeat;
+            will-change: transform;
+            transition: transform $adl-animation-timing linear;
+        }
+
+        &:hover {
+            background-color: darken($adl-grey-dark, 7.5%);
+            cursor: pointer;
+        }
     }
 
-    &.filter-marked .count {
-      padding-left: 8px;
-      transition: all $adl-animation-timing ease-in-out;
-      span:before {
-        display: inline-block;
-        margin-right: 0.5rem;
-        content: $check-mark;
-        font: 0.85rem 'FontAwesome';
-        opacity: 0.3;
-      }
-    }
+    .option {
+        background-color: $adl-grey-darkest;
+        padding: $adl-filter-padding;
+        color: $white;
+        display: flex;
+        border-bottom: 1px solid $adl-light-blue-grey;
 
-    &.show-more {
-      padding: $adl-filter-padding-top/2;
-      text-align: center;
-      font-size: .9rem;
+        &:hover {
+            background-color: darken($adl-grey-darkest, 7.5%);
+            cursor: pointer;
+        }
+
+        > input[type="checkbox"] {
+            display: none;
+        }
+
+        .count {
+            display: block;
+            margin-left: auto;
+            text-align: right;
+            padding: 1px 12px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: $adl-border-radius-big;
+            transition: all $adl-animation-timing/2 linear;
+
+            &:hover {
+                background-color: $adl-orange;
+                transition: all $adl-animation-timing/2 linear;
+            }
+        }
+
+        &.filter-marked .count {
+            padding-left: 8px;
+            transition: all $adl-animation-timing ease-in-out;
+            span:before {
+                display: inline-block;
+                margin-right: 0.5rem;
+                content: $check-mark;
+                font: 0.85rem 'FontAwesome';
+                opacity: 0.3;
+            }
+        }
+
+        &.show-more {
+            display: block;
+            padding: $adl-filter-padding-top/4;
+            background-color: $adl-black;
+            opacity: 0.7;
+            text-align: center;
+            font-size: .9rem;
+            will-change: background-color;
+            transition: background-color $adl-animation-timing linear;
+
+            span {
+                display: inline-block;
+            }
+
+            &:hover {
+                transition: all $adl-animation-timing linear;
+                background-color: $adl-orange;
+                opacity: 1;
+            }
+        }
     }
-  }
 }
 
 // Don't suggest that the always-open filters can be collapsed
 .filter.always-open {
-  .title {
-    &:after {
-      content: '';
+    .title {
+        &:after {
+            content: '';
+        }
+        &:hover {
+            background-color: $adl-grey-dark;
+            cursor: default;
+        }
     }
-    &:hover {
-      background-color: $adl-grey-dark;
-      cursor: default;
-    }
-  }
 
-  .option {
-    display: flex;
-    justify-content: space-between;
+    .option {
+        display: flex;
+        justify-content: space-between;
 
-    &:hover {
-      background-color: $adl-grey-darkest;
-      cursor: default;
+        &:hover {
+            background-color: $adl-grey-darkest;
+            cursor: default;
+        }
     }
-  }
 }
