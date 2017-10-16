@@ -1,15 +1,15 @@
 
 <div id="search-results">
     {% for adventure in adventures %}
-        <a href="{{ path('adventure_show', { 'slug': adventure.slug }) }}">
+        <a href="{{ path('adventure_show', { 'slug': adventure.slug }) }}" title="Click to see adventure details.">
             <div class="adventure">
                 {% if adventure.thumbnailUrl %}
                     <img alt="Cover of {{ adventure.title }}" data-original="{{ adventure.thumbnailUrl }}" class="thumbnail" />
                 {% endif %}
                 <div class="title">{{ adventure.title }}</div>
                 <div class="tags-container">
-                    <div class="tag">{{ adventure.edition }}</div>
-                    <div class="tag">
+                    <div class="tag" title="System / Edition">{{ adventure.edition }}</div>
+                    <div class="tag" title="Level Range">
                         {% if adventure.minStartingLevel is not null and adventure.maxStartingLevel is not null %}
                             {% if adventure.minStartingLevel == adventure.maxStartingLevel %}
                                 Level {{ adventure.minStartingLevel }}
@@ -20,7 +20,7 @@
                             {{ adventure.startingLevelRange }} Level
                         {% endif %}
                     </div>
-                    <div class="tag">{{ adventure.numPages }} pages</div>
+                    <div class="tag" title="Number of Pages">{{ adventure.numPages }} pages</div>
                 </div>
                 <p class="description">{{ adventure.description }}</p>
             </div>

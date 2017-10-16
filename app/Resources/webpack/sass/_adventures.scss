@@ -96,9 +96,10 @@ $card-padding: $card-padding-top $card-padding-side;
       .tag {
         padding: 3px 12px;
         margin-right: 6px;
-        background-color: $adl-grey-light;
+        background-color: $adl-tag-grey;
         border-radius: $adl-border-radius-big;
         font-family: $adl-ui-font;
+        font-weight: 300;
         text-transform: uppercase;
         color: #ffffff;
 
@@ -108,7 +109,7 @@ $card-padding: $card-padding-top $card-padding-side;
         }
 
         &:hover {
-          background-color: $adl-orange;
+          background-color: $adl-dark-blue-gray;
         }
 
         &.tag-edition::before { content: '\f013'; }
@@ -127,12 +128,13 @@ $card-padding: $card-padding-top $card-padding-side;
       display: -webkit-box;
       margin: $card-padding;
       margin-right: calc(#{$card-padding-side} + #{$thumbnail-width} + #{$thumbnail-offset});
-      max-height: 1.1rem*$adl-line-height*3;
+      max-height: 1.2rem*$adl-line-height*3;
       overflow: hidden;
       text-overflow: ellipsis;
       font-size: 1.1rem;
       -webkit-line-clamp: 3;
       -webkit-box-orient: vertical;
+      padding-bottom: 0.5rem;
     }
   }
 
