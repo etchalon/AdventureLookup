@@ -74,11 +74,20 @@ $check-mark: '\f00c';
     }
 
     .option {
+
         background-color: $adl-grey-darkest;
         padding: $adl-filter-padding;
         color: $white;
         display: flex;
         border-bottom: 1px solid $adl-light-blue-grey;
+
+        span {
+            display: block;
+            white-space: nowrap;
+            max-width: 200px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
 
         &:hover {
             background-color: darken($adl-grey-darkest, 7.5%);

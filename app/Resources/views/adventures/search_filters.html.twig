@@ -1,10 +1,10 @@
 {% macro filter_checkbox(field, value, checked, count, hidden) %}
     {% set name = 'f[' ~ field.name ~ '][v][]' %}
-    <div class="option{% if hidden %} d-none{% endif %}{% if checked %} filter-marked{% endif %}">
+    <div class="option{% if hidden %} d-none{% endif %}{% if checked %} filter-marked{% endif %}" title="{{ value }}">
         <input type="checkbox" id="{{ name }}" name="{{ name }}" value="{{ value }}"
                {% if checked %}checked{% endif %}
         />
-        {{ value }}
+        <span>{{ value }}</span>
         <div class="count"><span>{{ count }}</span></div>
     </div>
 {% endmacro %}
