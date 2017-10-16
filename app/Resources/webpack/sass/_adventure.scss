@@ -61,6 +61,10 @@ $card-padding: $card-padding-top $card-padding-side;
         padding-right: .25rem;
       }
 
+      &:hover {
+        background-color: $adl-orange;
+      }
+
       &.tag-edition::before { content: '\f013'; }
       &.tag-level::before { content: '\f024'; }
       &.tag-length::before { content: '\f02d'; }
