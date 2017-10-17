@@ -1,0 +1,16 @@
+.adl-header
+{
+    display: flex;
+    justify-content: space-between;
+    text-transform: uppercase;
+    color: $adl-light-blue-grey;
+
+    margin-top: 20px;
+    min-height: 50px;
+
+    h1, h2 {
+        align-self: flex-end;
+        font: 200 1.5rem $adl-ui-orn-font;
+        opacity: $adl-global-opacity - 0.25;
+    }
+}

@@ -6,13 +6,23 @@
 
         .form-control {
             @include blankinputstyle;
-
-            background: $adl-white;
             padding: $adl-filter-padding;
-            border-right: 1px solid $adl-grey;
+
+            background-color: white;
+            color: darken($adl-grey-darkest, 7.5%);
+            border-top: 1px solid $adl-lightest-grey;
+            border-bottom: 1px solid $adl-lightest-grey;
+
+            transition: background-color $adl-animation-timing linear;
 
             &.adl-integer-left {
-                border-left: 1px solid $adl-grey;
+                border-right: 1px solid $adl-lightest-grey;
+            }
+
+            &:focus {
+                background-color: white;
+                color: darken($adl-grey-darkest, 7.5%);
+                transition: background-color $adl-animation-timing linear;
             }
         }
 

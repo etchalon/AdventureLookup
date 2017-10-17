@@ -1,0 +1,23 @@
+.filter
+{
+    .option.search-complete
+    {
+        padding: 0;
+
+        .form-control {
+            @include blankinputstyle;
+            background: $adl-dark-light-grey;
+            padding: $adl-filter-padding;
+            border-top: 1px solid darken($adl-grey-darkest, 7.5%);
+            border-bottom: 1px solid $adl-black;
+            color: $adl-white;
+            transition: background-color $adl-animation-timing linear;
+
+            &:focus {
+                background-color: white;
+                color: darken($adl-grey-darkest, 7.5%);
+                transition: background-color $adl-animation-timing linear;
+            }
+        }
+    }
+}

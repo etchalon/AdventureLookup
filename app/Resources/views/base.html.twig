@@ -4,7 +4,7 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>{% block title %}Adventure Lookup{% endblock %}</title>
-        <link href="https://fonts.googleapis.com/css?family=Fira+Sans+Condensed:100,300,400|Zilla+Slab:400,500,600,700" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Fira+Sans+Condensed:100,300,400|Fira+Sans+Extra+Condensed:100,200|Zilla+Slab:400,500,600,700" rel="stylesheet">
         <link rel="stylesheet" href="{{ asset('assets/app.css') }}">
         {% block stylesheets %}{% endblock %}
         <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('apple-touch-icon.png') }}">
@@ -18,7 +18,7 @@
         {% include 'header.html.twig' %}
 
         {% if app.session.flashbag.peekAll is not empty %}
-            <div class="container mb-4 mt-3">
+            <div class="container-fluid mb-4 mt-3">
                 <div class="row">
                     <div class="col">
                         {% for label, messages in app.session.flashbag.all %}

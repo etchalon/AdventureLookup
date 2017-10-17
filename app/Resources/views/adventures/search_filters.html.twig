@@ -35,8 +35,16 @@
                 {% if field.type == 'string' %}
                     {% set buckets = stats['vals_' ~ field.name]['buckets'] %}
                     {% set showMoreAfter = 5 %}
-                    {% set showAutocomplete = 15 %}
+                    {% set showAutocomplete = 20 %}
                     {% set valuesUsed = [] %}
+                    {% if buckets|length > showAutocomplete %}
+                        {% set showMoreAfter = 4 %}
+                        <div class="option search-complete">
+                            <input type="search" name="f[{{ field.name }}][v][search]" id="filter-{{ field.name }}-search"
+                                   placeholder="Filter for&hellip;" class="form-control adl-autocomplete"
+                            />
+                        </div>
+                    {% endif %}
                     {% for bucket in buckets %}
                         {% set valuesUsed = valuesUsed|merge([bucket.key]) %}
                         {{ macros.filter_checkbox(field, bucket.key, bucket.key in filter['v']|default([]), bucket.doc_count, loop.index0 >= showMoreAfter) }}

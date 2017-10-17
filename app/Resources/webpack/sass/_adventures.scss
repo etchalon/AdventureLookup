@@ -23,16 +23,6 @@ $card-padding: $card-padding-top $card-padding-side;
   }
 }
 
-#search-title {
-  display: flex;
-  justify-content: space-between;
-  margin: $element-margin-bottom/2 0;
-  font: 600 1.5rem 'Arima Madurai';
-  line-height: 1.5rem;
-  color: #333333;
-  text-transform: uppercase;
-}
-
 #search-bar {
   display: flex;
   margin-bottom: $element-margin-bottom;
@@ -98,7 +88,7 @@ $card-padding: $card-padding-top $card-padding-side;
         margin-right: 6px;
         background-color: $adl-tag-grey;
         border-radius: $adl-border-radius-big;
-        font-family: $adl-ui-font;
+        font-family: $adl-ui-orn-font;
         font-weight: 300;
         text-transform: uppercase;
         color: #ffffff;
@@ -128,13 +118,14 @@ $card-padding: $card-padding-top $card-padding-side;
       display: -webkit-box;
       margin: $card-padding;
       margin-right: calc(#{$card-padding-side} + #{$thumbnail-width} + #{$thumbnail-offset});
-      max-height: 1.2rem*$adl-line-height*3;
+      max-height: 1.1rem*$adl-line-height*3;
       overflow: hidden;
       text-overflow: ellipsis;
       font-size: 1.1rem;
+      padding-bottom: 0.5rem;
+      // Vendor
       -webkit-line-clamp: 3;
       -webkit-box-orient: vertical;
-      padding-bottom: 0.5rem;
     }
   }
 
