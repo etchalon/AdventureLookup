@@ -1,56 +1,81 @@
 #adl-sidebar {
-  align-self: flex-start;
-  margin-top: 20px;
-  padding: 0;
-  font-family: $adl-ui-font;
-  font-weight: 300;
-  text-transform: uppercase;
-  user-select: none;
-
-  > .content {
-    box-shadow: $adl-box-shadow;
-    margin-bottom: 8px;
-    background-color: $adl-grey-dark;
-
-    #filter-more {
-      display: flex;
-      justify-content: center;
-      height: 30px;
-      background-color: $adl-coral;
-      color: #ffffff;
-
-      &:after {
-        content: '\f141';
-        font: 2.5rem 'FontAwesome';
-      }
-      &:hover {
-        cursor: pointer;
-        background-color: darken($adl-coral, 7.5%);
-      }
-    }
-  }
-
-  input[type="button"],
-  a.btn {
-    display: flex;
-    max-width: 80%;
-    justify-content: space-between;
-    background-color: $adl-grey;
-    margin: 12px auto;
-    padding: 8px 10px;
-    border-radius: 0;
-    font: 1.2rem 'Roboto Condensed';
+    align-self: flex-start;
+    margin-top: 20px;
+    padding: 0;
+    font-family: $adl-ui-font;
+    font-weight: 300;
     text-transform: uppercase;
-    box-shadow: $adl-box-shadow;
 
-    &:after {
-      font: 1.6rem 'FontAwesome';
-    }
-    &:hover {
-      cursor: pointer;
-      background-color: darken($adl-grey, 7.5%);
-    }
+    user-select: none;
 
-    &#create-adventure:after { content: '\f055'; }
-  }
-}
+    text-align: center;
+
+    > .content {
+        box-shadow: $adl-box-shadow;
+        margin-bottom: 8px;
+
+        background-color: $adl-grey-dark;
+
+        #filter-more {
+            display: flex;
+            justify-content: center;
+            height: 30px;
+            background-color: $adl-coral;
+            color: #ffffff;
+
+            text-align: left;
+
+            .sidebar-title {
+                padding: $adl-filter-padding;
+                background-color: $adl-coral;
+                color: #ffffff;
+                font-size: 1.5rem;
+                font-weight: 600;
+                letter-spacing: .2rem;
+                text-align: center;
+
+                &:hover {
+                    cursor: pointer;
+                    background-color: darken($adl-coral, 7.5%);
+                    text-decoration: none;
+                }
+            }
+
+            .sidebar-block {
+                min-height: $adl-filter-min-height;
+                border-bottom: 2px solid $adl-grey-light;
+                color: $adl-offwhite;
+
+                .block-title {
+                    padding: $adl-filter-padding;
+                    background-color: $adl-grey-dark;
+                    font-size: 1.2rem;
+
+                    &:hover {
+                        background-color: darken($adl-grey-dark, 7.5%);
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+
+        input[type="button"],
+        button,
+        a.btn {
+            display: table;
+            margin: 12px auto;
+            padding: 8px 10px;
+            border-radius: 0;
+            font: 1.2rem 'Roboto Condensed';
+            text-transform: uppercase;
+            box-shadow: $adl-box-shadow;
+
+            &:after {
+                font: 1.6rem 'FontAwesome';
+            }
+            &:hover {
+                cursor: pointer;
+                background-color: darken($adl-grey, 7.5%);
+            }
+        }
+    }

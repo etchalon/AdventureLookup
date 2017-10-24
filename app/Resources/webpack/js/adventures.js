@@ -9,8 +9,6 @@
         return;
     }
 
-    console.log($optionsListInner);
-
     $('#search-submit').on('click', () => {
         $('#search-form').submit();
     });
@@ -97,6 +95,54 @@
         }
     });
 
+    $('.search-complete').each((index, element) => {
+        let $parent = $(element).closest('.filter'),
+            $input = $parent.find('input[type=search]'),
+            $options = $parent.find('.option-check'),
+            $inner = $parent.find('.option-list-inner');
+
+        minHeight = rowHeight + moreRowHeight;
+
+        $parent.term = '';
+        $parent.input = $input;
+        $parent.results = $options;
+        $parent.inner = $inner;
+
+        $input.keyup((e) => {
+            $parent.term = $input.val();
+            $parent.updateResults();
+        });
+
+        $input.on('focus', () => {
+            if ($parent.term.length < 1) {
+                $parent.results.filter('.d-none').addClass('df-none');
+            }
+        });
+
+        $input.on('blur', (e) => {
+            $parent.updateResults();
+        });
+
+        $parent.updateResults = () => {
+            if ($parent.term.length > 0)
+            {
+                $parent.filtered = $parent.results.filter(`:contains('${$parent.term.toLowerCase()}')`);
+                $parent.results.not($parent.filtered).addClass('d-none');
+                $parent.filtered.removeClass('d-none');
+                newHeight = Math.max(minHeight, ($parent.filtered.length * rowHeight) + minHeight);
+                $parent.inner.css({ 'max-height': `${newHeight}px` });
+            }
+            else
+            {
+                $parent.results.removeClass('d-none');
+                $parent.results.filter('.df-none').addClass('d-none').removeClass('df-none');
+                newHeight = parseInt($parent.inner.attr('data-max-height-initial'), 10);
+                $parent.inner.css({ 'max-height': `${newHeight}px` });
+            }
+        };
+
+    });
+
     // Show more filters (hopefully the lesser-used ones)
     $('#filter-more').on('click', e => {
         $('#adl-sidebar').find('.filter.d-none').removeClass('d-none');
@@ -129,8 +175,10 @@
 
     // Load more adventures
     let currentPage = 1;
+
     const $searchForm = $("#search-form");
     const $loadMoreBtn = $('#load-more-btn');
+
     $loadMoreBtn.click(function () {
         $loadMoreBtn.attr('disabled', true);
         $loadMoreBtn.find('.fa-spin').removeClass('d-none');

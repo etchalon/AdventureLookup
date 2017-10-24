@@ -1,10 +1,10 @@
 {% macro filter_checkbox(field, value, checked, count, hidden) %}
     {% set name = 'f[' ~ field.name ~ '][v][]' %}
-    <div class="option{% if hidden %} d-none{% endif %}{% if checked %} filter-marked{% endif %}" title="{{ value }}">
+    <div class="option option-check{% if hidden %} d-none{% endif %}{% if checked %} filter-marked{% endif %}" title="{{ value }}">
         <input type="checkbox" id="{{ name }}" name="{{ name }}" value="{{ value }}"
                {% if checked %}checked{% endif %}
         />
-        <span>{{ value }}</span>
+        <span>{{ value|lower }}</span>
         <div class="count"><span>{{ count }}</span></div>
     </div>
 {% endmacro %}
@@ -41,7 +41,8 @@
                         {% set showMoreAfter = 4 %}
                         <div class="option search-complete">
                             <input type="search" name="f[{{ field.name }}][v][search]" id="filter-{{ field.name }}-search"
-                                   placeholder="Filter for&hellip;" class="form-control adl-autocomplete"
+                                   autocomplete="off" placeholder="Filter for&hellip;"
+                                   class="form-control adl-autocomplete"
                             />
                         </div>
                     {% endif %}

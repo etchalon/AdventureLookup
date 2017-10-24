@@ -30,7 +30,10 @@ $check-mark: '\f00c';
 
     // Has one or more options selected
     &.filter-marked {
-        .title span { opacity: 1; font-weight: 400; }
+        .title span {
+            opacity: 1;
+            font-weight: 400;
+        }
     }
 
     .option-list-inner {
@@ -160,7 +163,6 @@ $check-mark: '\f00c';
             cursor: default;
         }
     }
-
     .option {
         display: flex;
         justify-content: space-between;
@@ -169,5 +171,24 @@ $check-mark: '\f00c';
             background-color: $adl-grey-darkest;
             cursor: default;
         }
+    }
+}
+
+}
+
+#filter-more {
+    display: flex;
+    justify-content: center;
+    height: 30px;
+    background-color: $adl-coral;
+    color: #ffffff;
+
+    &:after {
+        content: '\f141';
+        font: 2.5rem 'FontAwesome';
+    }
+    &:hover {
+        cursor: pointer;
+        background-color: darken($adl-coral, 7.5%);
     }
 }

@@ -16,6 +16,12 @@
                     {#{% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}#}
                         <a id="create-adventure" class="btn btn-secondary" href="{{ path('adventure_new') }}">Add a new adventure</a>
                     {#{% endif %}#}
+                    {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+                        <a class="btn btn-secondary" href="{{ path('adventure_new') }}">
+                            <i class="fa fa-plus-circle"></i>
+                            Add a new adventure
+                        </a>
+                    {% endif %}
                 </div>
             </div>
             <div class="col-9">
